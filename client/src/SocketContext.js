@@ -26,14 +26,13 @@ export const ContextProvider = ({ children }) => {
       setStream(currentStream);
       // Output video and audio on screen
       myVideo.current.srcObject = currentStream;
+    });
+    socket.on('me', (id) => {
+      setMe(id);
+    });
 
-      socket.on('me', (id) => {
-        setMe(id);
-      });
-
-      socket.on('calluser', ({ from, name: callerName, signal }) => {
-        setCall({ isReceivedCall: true, from, name: callerName, signal });
-      });
+    socket.on('calluser', ({ from, name: callerName, signal }) => {
+      setCall({ isReceivedCall: true, from, name: callerName, signal });
     });
   }, []);
 
