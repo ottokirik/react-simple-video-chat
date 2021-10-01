@@ -4,7 +4,7 @@ import Peer from 'simple-peer';
 
 export const SocketContext = createContext();
 
-const socketURL = `http://localhost:5000`;
+const socketURL = `https://simple-video-chat-app81.herokuapp.com/`;
 
 const socket = io(socketURL);
 
